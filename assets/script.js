@@ -91,6 +91,7 @@ const upperCasedCharacters = [
 // **TASK 1: Present a series of prompts for password criteria, prompting for length of password (at least 8 characters but no more than 128) and character types (lowercase, uppercase, numeric, and special characters).
 
 // *TASK 1.1: Create object to store user's password options.
+
 // 1.1: Object to "collect" the user's password options (to be used with getPasswordOptions function)
 let userChoice = {
   pwIncUpperCase: false,
@@ -100,15 +101,19 @@ let userChoice = {
 };
 
 // *TASK 1.2: Create function to prompt the user for password options.
-// *TASK 1.2.1: Use confirm length to ask questions with yes/no answers (i.e. questions about password characters).
+
+// *TASK 1.2.1: Use confirm method to ask questions with yes/no answers (i.e. questions about password characters).
 // WORKINGS: Character type questions all require a yes or no answer (i.e. true or false). Confirm method returns true (if user selects OK) or otherwise returns false, so we can use this method to ask these questions.
 
 // *TASK 1.2.2: Use prompt method to ask question which requires user input in answer (i.e. question about password length).
+// WORKINGS: The prompt method returns a string (as the data type). However, we need the returned value to be a number type (so that we can use this in later functions). The parseInt method ‘parses’ a value as a string and returns the first ‘integer’ (i.e. number). In simplistic terms, we can therefore use this method to ‘convert’ the string into a number.
+
 // *TASK 1.2.3: Use if/else statement and do/while loop to validate user’s input (i.e. check the answer is a number between 8 and 128, and keep asking if not).
 // WORKINGS: Length question requires a number as the answer (i.e. user input). Prompt method returns user’s input value (if user selects OK) otherwise it returns null, so we can use this method to ask the length question. However, we need to validate this to ensure a number (within our specified range) is inputted by the user. If/else statement(s) check condition(s) and only run the code block if the condition(s) are met, so we can use this to set our conditions (i.e. length must be between 8 and 128, and cannot not be a number). But we then need to keep asking this question until the user’s input meets our conditions. We can use a do/while loop for this. Do/while loops will execute the code block once (i.e. ask the question once) before checking if the condition is true (i.e. does the answer meet our conditions) and if not, will loop through again (i.e. keep asking the question) and so on, until the condition(s) are met (i.e. until the user inputs a number between 8 and 128).
+
 // 1.2: Function to prompt the user for password options.
-function getPasswordOptions() {
-  // 1.2.1: Confirm methods for questions about password characters.
+function getPasswordChoices() {
+  // 1.2.1: Confirm methods for questions about password characters. (Used template templates).
   userChoice.pwIncUpperCase = confirm(`Do you want to include uppercases in your password?
 
 To answer yes, select 'OK'. To answer no, select 'Cancel'.`)
@@ -118,7 +123,7 @@ To answer yes, select 'OK'. To answer no, select 'Cancel'.`)
   userChoice.pwIncSpecial = confirm(`Do you want to include special characters in your password?
   
 To answer yes, select 'OK'. To answer no, select 'Cancel'.`)
-  // 1.2.2: Prompt method for question about password length.
+  // 1.2.2: Prompt method for question about password length, and parseInt method to return number data type.
   userChoice.pwLength = parseInt(prompt("Choose the length of your password (from 8 to 128)"))
   // 1.2.3: Do/while loop inside of the function, to continue prompting the user until they've inputted an accepted value (i.e a number from 8 to 128)
   do{
@@ -132,10 +137,29 @@ To generate your password, select 'OK' and then select the 'Generate Password' b
   } while(userChoice.pwLength < 8 || userChoice.pwLength > 128 || isNaN(userChoice.pwLength));
   }
 
-// 1.2: Call getPasswordOptions function (so that the user is asked for their password options)
-getPasswordOptions()
-console.log(userChoice)
+// 1.2: Call getPasswordChoices function (so that the user is asked for their password choices)
+getPasswordChoices()
+// console.log(userChoice)
 // expected result: CORRECT
+
+// **TASK 2: Once prompts are answered then the password should be generated.
+
+// *TASK 2.1: Create arrays containing elements (i.e. characters) with all possible user choices (i.e. lowercase and uppercase; lowercase, uppercase and numbers; lowercase, uppercase and special; lowercase, uppercase, numbers and special; lowercase and numbers; lowercase, numbers and special characters; lowercase and special characters).
+// WORKINGS: Starter code included separate arrays of lowercase characters, uppercase, numbers and special characters so we can join these to make the new arrays. Array concat method joins two or more arrays and returns a new array (without altering the original array). As our new arrays need to be made up of our existing arrays, we can use the concat method.
+
+// *TASK 2.2: Create a function which will return a random element from an array (i.e. a random character).
+// WORKINGS: Math.random method returns a random number between 0 and 1. We need higher than this to be returned though, because our arrays are longer than this. When we use Math.random used with the Math.floor method, it can return random ‘integers’ (i.e. numbers). We therefore set it to return a number that is up to the length of our array.
+
+// *TASK 2.3: Create variable to store the user's generated password.
+
+// *TASK 2.4: Create a function to generate a password based on the user’s choices (i.e. their preferences for characters and specified length).
+
+// *TASK 2.4.1: Password based on the user’s chosen characters.
+// WORKINGS: We need the password to meet the user’s character choices and length choice (i.e. meet the conditions stored in userChoice object). So to begin, the password needs to be generated from the array that contains the user’s character choices (e.g. just lowercase characters, or lowercase and uppercase characters; etc). Switch statements are similar to if/else statements; they check for strict equality between the case and the expression, and if one of the cases matches the expression, then the code inside that case will run. We can therefore use this to say: if the user’s choice(s) are met, run the getRandom function through the array that contains the user’s character choice(s) and add the returned element (i.e. character) to thePassword variable (i.e. the user’s generated password). For example, if the user said no to uppercase, no to numbers and no to special character; the randomly generated element from the lowercaseCharacters array will be returned and added to the user’s generated password.
+
+// *TASK 2.4.2: Password of user’s chosen length.
+// WORKINGS: However, the above (2.4.1) would only give us one character (i.e. the password would be a length of 1). Therefore we also need to meet the user’s choice of length. We can use a do/while loop to say: continue running the generatePassword function until the thePassword variable is the same length as the userChoice.pwLength property (i.e. is the same as the user’s choice of length).
+
 
 // Get references to the #generate element
 const generateBtn = document.querySelector('#generate');
