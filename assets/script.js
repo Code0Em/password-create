@@ -196,15 +196,11 @@ function getRandom(arr) {
 // 2.2: Call getRandom function (to test it's working on all our arrays)
 // console.log(getRandom(lowerCasedCharacters))
 // expected result: CORRECT
-// console.log(getRandom(upperCasedCharacters))
-// expected result: CORRECT
-// console.log(getRandom(numericCharacters))
-// expected result: CORRECT
-// console.log(getRandom(specialCharacters))
-// expected result: CORRECT
 //console.log(getRandom(lowerUpperCasedCharacters))
 // expected result: CORRECT
 // console.log(getRandom(lowerUpperNumsCharacters))
+// expected result: CORRECT
+// console.log(getRandom(lowerUpperSpecCharacters))
 // expected result: CORRECT
 // console.log(getRandom(lowerUpperNumsSpecCharacters))
 // expected result: CORRECT
@@ -270,6 +266,9 @@ do{generatePassword()}while(thePassword.length<userChoice.pwLength)
 console.log(thePassword)
 // expected result: CORRECT (checked for all cases)
 
+// **TASK 3: Write generated password to the page.
+// *TASK: 3.1: When user selects button, generated password is written to page.
+// WORKINGS: Starter code included functionality for this task, so only need to update password variable with thePassword variable.
 
 // Get references to the #generate element
 const generateBtn = document.querySelector('#generate');
