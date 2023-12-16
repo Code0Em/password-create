@@ -146,8 +146,8 @@ let thePassword = ""
 // *TASK 1.2.2: Use prompt method to ask question that requires user input in answer (i.e. question about password length).
 // WORKINGS: The prompt method returns a string (as the data type). However, we need the returned value to be a number type (so that we can use this in later functions). The parseInt method ‘parses’ a value as a string and returns the first ‘integer’ (i.e. number). In simplistic terms, we can therefore use this method to ‘convert’ the string into a number.
 
-// *TASK 1.2.3: Use if/else statement and do/while loop to validate user’s input (i.e. check the answer is a number between 8 and 128, and keep asking if not).
-// WORKINGS: Length question requires a number as the answer (i.e. user input). Prompt method returns user’s input value (if user selects OK) otherwise it returns null, so we can use this method to ask the length question. However, we need to validate this to ensure a number (within our specified range) is inputted by the user. If/else statement(s) check condition(s) and only run the code block if the condition(s) are met, so we can use this to set our conditions (i.e. length must be between 8 and 128, and cannot not be a number). But we then need to keep asking this question until the user’s input meets our conditions. We can use a do/while loop for this. Do/while loops will execute the code block once (i.e. ask the question once) before checking if the condition is true (i.e. does the answer meet our conditions) and if not, will loop through again (i.e. keep asking the question) and so on, until the condition(s) are met (i.e. until the user inputs a number between 8 and 128).
+// *TASK 1.2.3: Use if statement and do/while loop to validate user’s input (i.e. check the answer is a number between 8 and 128, and keep asking if not).
+// WORKINGS: Length question requires a number as the answer (i.e. user input). Prompt method returns user’s input value (if user selects OK) otherwise it returns null, so we can use this method to ask the length question. However, we need to validate this to ensure a number (within our specified range) is inputted by the user. If statement(s) check condition(s) and only run the code block if the condition(s) are met, so we can use this to set our conditions (i.e. length must be between 8 and 128, and cannot not be a number). But we then need to keep asking this question until the user’s input meets our conditions. We can use a do/while loop for this. Do/while loops will execute the code block once (i.e. ask the question once) before checking if the condition is true (i.e. does the answer meet our conditions) and if not, will loop through again (i.e. keep asking the question) and so on, until the condition(s) are met (i.e. until the user inputs a number between 8 and 128).
 
 // 1.2: Function to prompt the user for password options.
 function getPasswordChoices() {
@@ -164,16 +164,15 @@ To answer yes, select 'OK'. To answer no, select 'Cancel'.`);
   // 1.2.2: Prompt method for question about password length, and parseInt method to return number data type.
   userChoice.pwLength = parseInt(prompt("Choose the length of your password (from 8 to 128)"));
   // 1.2.3: Do/while loop inside of the function, to continue prompting the user until they've inputted an accepted value (i.e a number from 8 to 128)
-  do{
-  if(userChoice.pwLength < 8 || userChoice.pwLength > 128 || isNaN(userChoice.pwLength)) {
-    userChoice.pwLength = parseInt(prompt("Try again! Choose the length of your password (from 8 to 128)"))
-  } else {
-    alert(`Thanks for making your password choices.
- 
+  do {
+    if (userChoice.pwLength < 8 || userChoice.pwLength > 128 || isNaN(userChoice.pwLength)) {
+      userChoice.pwLength = parseInt(prompt("Try again! Choose the length of your password (from 8 to 128)"))
+    }
+  } while (userChoice.pwLength < 8 || userChoice.pwLength > 128 || isNaN(userChoice.pwLength));
+  alert(`Thanks for making your password choices.
+
 To generate your password, select 'OK' and then select the 'Generate Password' button in the browser.`);
-  }
-  } while(userChoice.pwLength < 8 || userChoice.pwLength > 128 || isNaN(userChoice.pwLength));
-  }
+}
 
 // 1.2: Call getPasswordChoices function (so that the user is asked for their password choices)
 getPasswordChoices()
@@ -220,39 +219,39 @@ function getRandom(arr) {
 
 // 2.4.1: Function to generate password based on user's choices
 function generatePassword() {
-  switch(true) {
+  switch (true) {
     // Case for lowercase only
-    case(userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === false):
-    thePassword += getRandom(lowerCasedCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === false):
+      thePassword += getRandom(lowerCasedCharacters);
+      break;
     // Case for lowercase and uppercase
-    case(userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === false):
-    thePassword += getRandom(lowerUpperCasedCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === false):
+      thePassword += getRandom(lowerUpperCasedCharacters);
+      break;
     // Case for lowercase, uppercase and numbers
-    case(userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === false):
-    thePassword += getRandom(lowerUpperNumsCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === false):
+      thePassword += getRandom(lowerUpperNumsCharacters);
+      break;
     // Case for lowercase, uppercase and special characters
-    case(userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === true):
-    thePassword += getRandom(lowerUpperSpecCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === true):
+      thePassword += getRandom(lowerUpperSpecCharacters);
+      break;
     // Case for lowercase, uppercase and special characters
-    case(userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === true):
-    thePassword += getRandom(lowerUpperNumsSpecCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === true && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === true):
+      thePassword += getRandom(lowerUpperNumsSpecCharacters);
+      break;
     // Case for lowercase and numbers
-    case(userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === false):
-    thePassword += getRandom(lowerNumsCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === false):
+      thePassword += getRandom(lowerNumsCharacters);
+      break;
     // Case for lowercase, numbers and special characters
-    case(userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === true):
-    thePassword += getRandom(lowerNumsSpecCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === true && userChoice.pwIncSpecial === true):
+      thePassword += getRandom(lowerNumsSpecCharacters);
+      break;
     // Case for lowercase and special characters
-    case(userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === true):
-    thePassword += getRandom(lowerSpecCharacters);
-    break;
+    case (userChoice.pwIncUpperCase === false && userChoice.pwIncNumeric === false && userChoice.pwIncSpecial === true):
+      thePassword += getRandom(lowerSpecCharacters);
+      break;
     default:
       console.log("A bug! Something must have gone wrong. Time to look at the code.");
   }
@@ -262,7 +261,7 @@ function generatePassword() {
 // WORKINGS: However, the above (2.4.1) would only give us one character (i.e. the password would be a length of 1). Therefore we also need to meet the user’s choice of length. We can use a do/while loop to say: continue running the generatePassword function until the thePassword variable is the same length as the userChoice.pwLength property (i.e. is the same as the user’s choice of length).
 
 // 2.4.2: Do/while loop to interate through the generatePassword function, until a password of the user's chosen length has been generated
-do{generatePassword()}while(thePassword.length<userChoice.pwLength)
+do { generatePassword() } while (thePassword.length < userChoice.pwLength)
 // console.log(thePassword)
 // expected result: CORRECT (checked for all cases)
 
