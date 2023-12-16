@@ -27,7 +27,7 @@ N/A
 
 ## Usage
 
-Users navigate to the webpage via the URL ([Password Creator](ADD LINK WHEN DEPLOYED). When on the webpage, primarily, the browser displays a series of confirm dialog boxes. Each of these asks the user to input their character choices for the password (i.e. a series of yes/no questions).
+Users navigate to the webpage via the URL ([Password Creator](https://code0em.github.io/password-create/)). When on the webpage, primarily, the browser displays a series of confirm dialog boxes. Each of these asks the user to input their character choices for the password (i.e. a series of yes/no questions).
 
 Note: the default character choice is lowercase only (i.e. if the user declined all of the character choices, their generated password would include only lowercase characters). Hence, by default, lowercase characters are included regardless of the user’s choice of other characters. 
 
@@ -35,7 +35,7 @@ When all of the character choices have been made, a prompt dialog box is display
 
 When the user’s password length has been chosen (and this meets the length criteria), an alert dialog box is displayed. The alert copy thanks the user for their password choices and instructs them on how to generate their password.
 
-Upon selecting the ‘Generate Password’ button in the browser, the user’s generated password is displayed in the box above this button (i.e. the card body).
+Upon selecting the ‘Generate Password’ button in the browser, the user’s generated password is displayed in the box above the button (i.e. the card body).
 
 On a resolution of 1400px, the application will display the generated password as follows:
 
