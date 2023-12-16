@@ -193,7 +193,7 @@ function getRandom(arr) {
   return (arr[(Math.floor(Math.random() * arr.length))]);
 }
 
-// 2.2: Call getRandom function (to test it's working on all our arrays)
+// 2.2: Call getRandom function (to test it's working on all of our arrays)
 // console.log(getRandom(lowerCasedCharacters))
 // expected result: CORRECT
 //console.log(getRandom(lowerUpperCasedCharacters))
@@ -283,3 +283,15 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+/* CREDITS: With thanks to the following, which built upon coder’s existing knowledge of the methods cited/used throughout:
+
+freeCodeCamp (2021) JavaScript Switch Case – JS Switch Statement Example (https://www.freecodecamp.org/news/javascript-switch-case-js-switch-statement-example/)
+
+GeeksforGeeks (2023) How to select a random element from array in JavaScript? (https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/)
+
+W3Schools (no date) JavaScript parseInt() Method (https://www.w3schools.com/jsref/jsref_parseint.asp#gsc.tab=0)
+
+W3Schools (no date) JavaScript Random Integers (https://www.w3schools.com/js/js_random.asp)
+
+W3Schools (no date) JavaScript String concat() Method (https://www.w3schools.com/jsref/jsref_concat_string.asp) */
