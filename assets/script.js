@@ -273,9 +273,9 @@ console.log(thePassword)
 // Get references to the #generate element
 const generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
+// 3.1: Write password to the #password input
 function writePassword() {
-  const password = generatePassword();
+  const password = thePassword;
   const passwordText = document.querySelector('#password');
 
   passwordText.value = password;
