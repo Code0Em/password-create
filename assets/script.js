@@ -263,7 +263,7 @@ function generatePassword() {
 
 // 2.4.2: Do/while loop to interate through the generatePassword function, until a password of the user's chosen length has been generated
 do{generatePassword()}while(thePassword.length<userChoice.pwLength)
-console.log(thePassword)
+// console.log(thePassword)
 // expected result: CORRECT (checked for all cases)
 
 // **TASK 3: Write generated password to the page.
